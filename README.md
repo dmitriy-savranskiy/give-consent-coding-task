@@ -1,44 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Running the App
+To run the app just run the following commands:
+```
+yarn
+yarn start
+```
 
-## Available Scripts
+# Testing
+To run tests, execute
+```
+yarn test
+```
 
-In the project directory, you can run:
+Use `renderWithStore` function from `testUtils` when you write integration tests.  
+Use `testIds.ts` file for storing `data-testid`'s, make sure to use prefix `tid` for each test id function.
 
-### `yarn start`
+# HTTP Mocking
+We use `mswjs` library for mocks. It's enabled by default and currently we don't have the ability to disable it, but it'll be implemented soon. You can find mocks in `api/mocks`. See the files with `Mock` postfix. 
+# Project structure
+```
+my-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├──api 
+    ├──app 
+    ├──common 
+    ├──features
+    │   ├──featureA
+    │   │    ├──ComponentName
+    │   │    │      ├──ComponentName.tsx
+    │   │    │      ├──ComponentName.test.tsx
+    │   │    │      └──ComponentName.module.scss
+    │   │    └──featureASlice.ts
+    │   └──featureB
+    ├──models 
+    ├──index.tsx 
+    ├──react-app-env.d.ts
+    ├──serviceWorker.ts
+    └──setupTests.ts
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Project follows a "feature folder" approach (all files for a feature in the same folder). Within a given feature folder, the Redux logic for that feature should be written as a single "slice" file
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+For each component should be created a folder where all the related to the component files are stored (component, tests, styles, helpers, etc.)
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Folders description
+`api` - Everything related to the communication over HTTP.  
+`app` - Low level logic that is rarely changed (rootComponent, rootStore, providers, etc).  
+`common` - Any shared code.  
+`features` - Main business logic of the app. Project follows a "feature folder" approach (all files for a feature in the same folder). Within a given feature folder, the Redux logic for that feature should be written as a single "slice" file.  
+`models` - Types for describing data (domain entities, DTO's, etc).

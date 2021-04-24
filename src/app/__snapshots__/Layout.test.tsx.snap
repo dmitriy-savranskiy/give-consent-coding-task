@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component should match snapshot 1`] = `
+<div
+  className="makeStyles-layoutWrapper-4"
+>
+  <nav
+    className="makeStyles-navContainer-3"
+  >
+    <div>
+      <div>
+        List
+        Mock
+      </div>
+      <div>
+        {}
+      </div>
+      <div>
+        <div>
+          <div>
+            NavLink
+            Mock
+          </div>
+          <div>
+            {"className":"makeStyles-navLink-1","activeClassName":"makeStyles-navLinkActive-2","to":"/give-consent"}
+          </div>
+          <div>
+            <div>
+              <div>
+                ListItem
+                Mock
+              </div>
+              <div>
+                {"button":true}
+              </div>
+              <div>
+                Give consent
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            NavLink
+            Mock
+          </div>
+          <div>
+            {"className":"makeStyles-navLink-1","activeClassName":"makeStyles-navLinkActive-2","to":"/consents"}
+          </div>
+          <div>
+            <div>
+              <div>
+                ListItem
+                Mock
+              </div>
+              <div>
+                {"button":true}
+              </div>
+              <div>
+                Collected consents
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main
+    className="makeStyles-content-5"
+  >
+    <div>
+      <div>
+        Container
+        Mock
+      </div>
+      <div>
+        {}
+      </div>
+      <div>
+        <span>
+          content
+        </span>
+      </div>
+    </div>
+  </main>
+</div>
+`;
